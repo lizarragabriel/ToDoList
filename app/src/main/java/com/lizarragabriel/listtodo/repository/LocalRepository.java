@@ -36,6 +36,10 @@ public class LocalRepository {
         return mTaskdao.mGetTasks(mUserId);
     }
 
+    public void mAddTask(TaskEntity mTaskEntity) {
+        mTaskdao.mAddTask(mTaskEntity);
+    }
+
 
 
 

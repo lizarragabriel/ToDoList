@@ -23,7 +23,10 @@ import com.lizarragabriel.listtodo.R;
 import com.lizarragabriel.listtodo.databinding.FragmentHomeBinding;
 import com.lizarragabriel.listtodo.room.entity.TaskEntity;
 import com.lizarragabriel.listtodo.sharedpref.SharedPref;
+import com.lizarragabriel.listtodo.ui.adapter.TaskAdapter;
 import com.lizarragabriel.listtodo.viewmodel.MainViewModel;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -31,6 +34,7 @@ public class HomeFragment extends Fragment {
     private NavController mNavController;
     private MainViewModel mMainViewModel;
     private SharedPref mShared;
+    private List<TaskEntity> lista;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,14 +52,23 @@ public class HomeFragment extends Fragment {
             NavController mNavController = Navigation.findNavController(view);
             mNavController.navigate(R.id.action_homeFragment_to_loginFragment);
         }
+        System.out.println("SOY EL " + session);
         mNavController = Navigation.findNavController(view);
         setHasOptionsMenu(true);
         mToolbar();
 
+
+        binding.mAddTask.setOnClickListener(mAdd -> {
+            NavController mNavController = Navigation.findNavController(mAdd);
+            mNavController.navigate(R.id.action_homeFragment_to_addFragment);
+        });
+
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         mMainViewModel.init(getContext());
-        mMainViewModel.mRecyclerView(1);
+        mMainViewModel.mRecyclerView(session);
         mMainViewModel.mGetTasks().observe(getViewLifecycleOwner(), mList -> {
+            binding.mRecyclerView.setAdapter(new TaskAdapter(mList));
+            lista = mList;
             if(mList.size() > 0) {
                 for(TaskEntity task : mList) {
                     System.out.println(task.toString());

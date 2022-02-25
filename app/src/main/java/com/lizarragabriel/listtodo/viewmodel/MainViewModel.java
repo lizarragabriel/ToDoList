@@ -12,6 +12,7 @@ import com.lizarragabriel.listtodo.room.entity.TaskEntity;
 import com.lizarragabriel.listtodo.room.entity.UserEntity;
 import com.lizarragabriel.listtodo.sharedpref.SharedPref;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class MainViewModel extends ViewModel {
@@ -20,7 +21,6 @@ public class MainViewModel extends ViewModel {
     private Context context;
     private LiveData<List<TaskEntity>> mTasks;
     private int userid = 0;
-
 
     public MainViewModel() {
 
@@ -36,9 +36,7 @@ public class MainViewModel extends ViewModel {
         repository = new LocalRepository(context);
     }
 
-    public void mRecyclerView(int id) {
-        mTasks = repository.mGetTasks(id);
-    }
+
 
     public boolean mLogin(String mUserName, String mPassword) {
         try {
@@ -48,6 +46,7 @@ public class MainViewModel extends ViewModel {
                     SharedPref mShared = new SharedPref(context);
                     mShared.mSetUserSession("user", mUser.getId());
                     userid = mUser.getId();
+                    System.out.println("hola soy " + userid);
                     return true;
                 } else {
                     System.out.println("no hay sesion");
@@ -79,6 +78,83 @@ public class MainViewModel extends ViewModel {
             System.out.println("hubo un error " + e.getMessage());
             return false;
         }
+    }
+
+    public void mRecyclerView(int id) {
+        this.userid = id;
+        mTasks = repository.mGetTasks(id);
+    }
+
+    public boolean mAddTask(String title) {
+        try {
+            if(!title.isEmpty()) {
+                TaskEntity mNewTask = new TaskEntity(userid, title, mDate());
+                repository.mAddTask(mNewTask);
+                System.out.println("lo agrego");
+                return true;
+            } else {
+                System.out.println("está vacio");
+                return false;
+            }
+        }catch (Exception e) {
+            System.out.println("error. " + e.getMessage());
+            return false;
+        }
+    }
+
+    private String mDate() {
+        Calendar mCalendar = Calendar.getInstance();
+        int day = mCalendar.get(Calendar.DAY_OF_MONTH);
+        int month = mCalendar.get(Calendar.MONTH);
+        int year = mCalendar.get(Calendar.YEAR);
+        month++;
+        return day + " " + mGetMonth(month) + " " + year;
+    }
+
+    private String mGetMonth(int month) {
+        String mNewMonth = "";
+        switch (month) {
+            case 1:
+                mNewMonth = "Enero";
+                break;
+            case 2:
+                mNewMonth = "Febrero";
+                break;
+            case 3:
+                mNewMonth = "Marzo";
+                break;
+            case 4:
+                mNewMonth = "Abril";
+                break;
+            case 5:
+                mNewMonth = "Mayo";
+                break;
+            case 6:
+                mNewMonth = "Junio";
+                break;
+            case 7:
+                mNewMonth = "Julio";
+                break;
+            case 8:
+                mNewMonth = "Agosto";
+                break;
+            case 9:
+                mNewMonth = "Septiembre";
+                break;
+            case 10:
+                mNewMonth = "Octubre";
+                break;
+            case 11:
+                mNewMonth = "Noviembre";
+                break;
+            case 12:
+                mNewMonth = "Diciembre";
+                break;
+            default:
+                mNewMonth = "error";
+                break;
+        }
+        return mNewMonth;
     }
 
     public void mToastMessage(String message) {
