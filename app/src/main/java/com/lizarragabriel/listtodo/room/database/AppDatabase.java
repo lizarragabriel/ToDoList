@@ -11,7 +11,7 @@ import com.lizarragabriel.listtodo.room.dao.UserDao;
 import com.lizarragabriel.listtodo.room.entity.TaskEntity;
 import com.lizarragabriel.listtodo.room.entity.UserEntity;
 
-@Database(entities = {UserEntity.class, TaskEntity.class}, version = 1)
+@Database(entities = {UserEntity.class, TaskEntity.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase appDatabase;
 

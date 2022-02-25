@@ -1,5 +1,6 @@
 package com.lizarragabriel.listtodo.room.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -14,7 +15,7 @@ import java.util.List;
 public interface TaskDao {
 
     @Query("SELECT * FROM tasks WHERE userId = :mUserId")
-    List<TaskEntity> mGetTasks(int mUserId);
+    LiveData<List<TaskEntity>> mGetTasks(int mUserId);
 
     @Query("DELETE FROM tasks WHERE userId = :mUserId")
     void mDeleteAllTask(int mUserId);

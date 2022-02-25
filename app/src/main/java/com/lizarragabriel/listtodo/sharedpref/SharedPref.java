@@ -13,7 +13,7 @@ public class SharedPref {
     }
 
     public void mSetUserSession(String username, int userid) {
-        sharedPreferences.edit().putInt(username, userid);
+        sharedPreferences.edit().putInt(username, userid).apply();
     }
 
     public int mGetUserSSession(String username) {
