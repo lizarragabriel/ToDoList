@@ -18,6 +18,9 @@ import com.lizarragabriel.listtodo.R;
 import com.lizarragabriel.listtodo.databinding.FragmentLoginBinding;
 import com.lizarragabriel.listtodo.viewmodel.MainViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
@@ -34,7 +37,7 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-        mMainViewModel.init(getContext());
+        //mMainViewModel.init(getContext());
         binding.mLogIn.setOnClickListener(mLogin -> {
             /*if(mMainViewModel.mLogin(binding.mUserName.getText().toString(), binding.mPasword.getText().toString())) {
                 NavController mNavController = Navigation.findNavController(mLogin);

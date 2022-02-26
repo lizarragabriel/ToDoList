@@ -23,6 +23,9 @@ import com.lizarragabriel.listtodo.databinding.FragmentDetailBinding;
 import com.lizarragabriel.listtodo.room.entity.TaskEntity;
 import com.lizarragabriel.listtodo.viewmodel.MainViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class DetailFragment extends Fragment {
 
     private FragmentDetailBinding binding;

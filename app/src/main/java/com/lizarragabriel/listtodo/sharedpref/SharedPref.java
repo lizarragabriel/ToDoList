@@ -3,8 +3,6 @@ package com.lizarragabriel.listtodo.sharedpref;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import androidx.viewbinding.BuildConfig;
-
 public class SharedPref {
     private SharedPreferences sharedPreferences;
 

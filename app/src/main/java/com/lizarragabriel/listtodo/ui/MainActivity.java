@@ -8,6 +8,9 @@ import android.os.Bundle;
 import com.lizarragabriel.listtodo.R;
 import com.lizarragabriel.listtodo.databinding.ActivityMainBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;

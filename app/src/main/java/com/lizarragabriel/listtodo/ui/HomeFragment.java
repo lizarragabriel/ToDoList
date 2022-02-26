@@ -32,6 +32,9 @@ import com.lizarragabriel.listtodo.viewmodel.MainViewModel;
 
 import java.util.List;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
@@ -75,7 +78,7 @@ public class HomeFragment extends Fragment {
 
         TaskAdapter adapter = new TaskAdapter();
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-        mMainViewModel.init(getContext());
+        //mMainViewModel.init(getContext());
         mMainViewModel.mRecyclerView(session);
         mMainViewModel.mGetTasks().observe(getViewLifecycleOwner(), mList -> {
             binding.mRecyclerView.setAdapter(adapter);

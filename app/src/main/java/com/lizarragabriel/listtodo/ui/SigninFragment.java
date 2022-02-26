@@ -16,6 +16,9 @@ import com.lizarragabriel.listtodo.R;
 import com.lizarragabriel.listtodo.databinding.FragmentSigninBinding;
 import com.lizarragabriel.listtodo.viewmodel.MainViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class SigninFragment extends Fragment {
 
     private FragmentSigninBinding binding;

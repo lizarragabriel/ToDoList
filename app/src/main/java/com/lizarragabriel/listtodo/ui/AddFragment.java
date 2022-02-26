@@ -16,6 +16,9 @@ import com.lizarragabriel.listtodo.R;
 import com.lizarragabriel.listtodo.databinding.FragmentAddBinding;
 import com.lizarragabriel.listtodo.viewmodel.MainViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class AddFragment extends Fragment {
 
     private FragmentAddBinding binding;

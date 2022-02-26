@@ -11,6 +11,11 @@
         android:gravity="center"
         tools:context=".ui.LoginFragment">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mNoteLogo" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -53,20 +58,32 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+        <LinearLayout
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:text="log in"
-            android:id="@+id/mLogIn" />
+            android:orientation="horizontal" >
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:id="@+id/mSignIn"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="sign in" />
+            <Button
+                android:id="@+id/mSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="sign in"
+                android:layout_marginStart="16dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"  />
+
+            <Button
+                android:id="@+id/mLogIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="16dp"
+                android:text="log in" />
+
+
+
+        </LinearLayout>
 
     </LinearLayout>
 </layout>
