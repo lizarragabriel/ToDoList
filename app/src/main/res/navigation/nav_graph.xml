@@ -49,5 +49,9 @@
         android:id="@+id/detailFragment"
         android:name="com.lizarragabriel.listtodo.ui.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="task"
+            app:argType="com.lizarragabriel.listtodo.room.entity.TaskEntity" />
+    </fragment>
 </navigation>

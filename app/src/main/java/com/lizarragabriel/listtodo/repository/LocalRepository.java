@@ -40,10 +40,16 @@ public class LocalRepository {
         mTaskdao.mAddTask(mTaskEntity);
     }
 
+    public void mUpdateTask(TaskEntity mTaskEntity) {
+        mTaskdao.mUpdateTask(mTaskEntity);
+    }
 
+    public void mDeleteTask(TaskEntity mTaskEntity) {
+        mTaskdao.mDeleteTask(mTaskEntity);
+    }
 
-
-
-
+    public void mDeleteAllTask(int id) {
+        mTaskdao.mDeleteAllTask(id);
+    }
 
 }

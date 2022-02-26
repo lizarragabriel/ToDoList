@@ -1,10 +1,13 @@
 package com.lizarragabriel.listtodo.room.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "tasks")
-public class TaskEntity {
+public class TaskEntity implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int userId;
@@ -16,6 +19,25 @@ public class TaskEntity {
         this.title = title;
         this.date = date;
     }
+
+    protected TaskEntity(Parcel in) {
+        id = in.readInt();
+        userId = in.readInt();
+        title = in.readString();
+        date = in.readString();
+    }
+
+    public static final Creator<TaskEntity> CREATOR = new Creator<TaskEntity>() {
+        @Override
+        public TaskEntity createFromParcel(Parcel in) {
+            return new TaskEntity(in);
+        }
+
+        @Override
+        public TaskEntity[] newArray(int size) {
+            return new TaskEntity[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -57,5 +79,18 @@ public class TaskEntity {
                 ", title='" + title + '\'' +
                 ", date='" + date + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeInt(userId);
+        parcel.writeString(title);
+        parcel.writeString(date);
     }
 }

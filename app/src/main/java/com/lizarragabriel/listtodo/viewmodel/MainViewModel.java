@@ -23,7 +23,7 @@ public class MainViewModel extends ViewModel {
     private int userid = 0;
 
     public MainViewModel() {
-
+        System.out.println("Hi. " + mDate());
     }
 
     public LiveData<List<TaskEntity>> mGetTasks() {
@@ -102,13 +102,33 @@ public class MainViewModel extends ViewModel {
         }
     }
 
+    public void mUpdateTask(TaskEntity mTaskEntity) {
+        repository.mUpdateTask(mTaskEntity);
+    }
+
+    public void mDeleteNote(TaskEntity mTaskEntity) {
+        repository.mDeleteTask(mTaskEntity);
+    }
+
+    public void mDeleteAllNotes() {
+        if(mTasks.getValue().size() != 0) {
+            repository.mDeleteAllTask(userid);
+        } else {
+            mToastMessage("Lista vacia");
+        }
+    }
+
     private String mDate() {
         Calendar mCalendar = Calendar.getInstance();
         int day = mCalendar.get(Calendar.DAY_OF_MONTH);
         int month = mCalendar.get(Calendar.MONTH);
         int year = mCalendar.get(Calendar.YEAR);
+
+        int hour = mCalendar.get(Calendar.HOUR_OF_DAY);
+        int minute = mCalendar.get(Calendar.MINUTE);
+
         month++;
-        return day + " " + mGetMonth(month) + " " + year;
+        return day + " " + mGetMonth(month) + " " + year + " " + hour + ":" + minute;
     }
 
     private String mGetMonth(int month) {
