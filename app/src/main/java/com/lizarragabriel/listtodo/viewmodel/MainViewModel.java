@@ -54,18 +54,20 @@ public class MainViewModel extends ViewModel {
 
     public boolean mLogin(String mUserName, String mPassword) {
         if(mLoginUserUseCase.mLogin(mUserName, mPassword, context)) {
-            System.out.println("correcto");
-            mToastMessage("Bienvenido");
+            mToastMessage("Welcome");
             return true;
+        } else {
+            mToastMessage("Invalid user");
         }
         return false;
     }
 
-    public boolean mSignIn(String mUserName, String mPassword) {
-        if(mAddUserUseCase.mAddUser(mUserName, mPassword)) {
-            System.out.println("si lo agregué");
-            mToastMessage("Agregado");
+    public boolean mSignIn(String mUserName, String mPassword, String mConfirm) {
+        if(mAddUserUseCase.mAddUser(mUserName, mPassword, mConfirm)) {
+            mToastMessage("Add user");
             return true;
+        } else {
+            mToastMessage("Invalid username");
         }
         return false;
     }
@@ -77,8 +79,7 @@ public class MainViewModel extends ViewModel {
 
     public boolean mAddTask(String title) {
         if(mAddTaskUseCase.mAddTask(title, userid)) {
-            System.out.println("si lo agregué");
-            mToastMessage("Agregado");
+            mToastMessage("Task Added");
             return true;
         }
         return false;
@@ -86,17 +87,17 @@ public class MainViewModel extends ViewModel {
 
     public void mUpdateTask(TaskEntity mTaskEntity) {
         mUpdateTaskUseCase.mUpdateTask(mTaskEntity);
-        mToastMessage("Edité una");
+        mToastMessage("Task updated");
     }
 
     public void mDeleteNote(TaskEntity mTaskEntity) {
         mDeleteTasksUseCase.mDeleteOneTask(mTaskEntity);
-        mToastMessage("Borré a una");
+        mToastMessage("Task deleted");
     }
 
     public void mDeleteAllNotes() {
         mDeleteTasksUseCase.mDeleteAllTasks(userid);
-        mToastMessage("Borré todo");
+        mToastMessage("All task deleted");
     }
 
     public void mToastMessage(String message) {

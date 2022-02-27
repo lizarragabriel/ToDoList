@@ -22,7 +22,6 @@ public class AddTaskUseCase {
             }
             TaskEntity mNewTask = new TaskEntity(mUserId, mBody, mGetDate());
             mTaskRepository.mAddTask(mNewTask);
-            System.out.println("ya la gregué");
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -37,48 +36,79 @@ public class AddTaskUseCase {
         int year = mCalendar.get(Calendar.YEAR);
         int hour = mCalendar.get(Calendar.HOUR_OF_DAY);
         int minute = mCalendar.get(Calendar.MINUTE);
+        int day_week = mCalendar.get(Calendar.DAY_OF_WEEK);
         month++;
-        return day + " " + mGetMonth(month) + " " + year + " " + hour + ":" + minute;
+        return mGetDay(day_week) + " " + day + " " + mGetMonth(month) + " " + year + " " + hour + ":" + minute;
+    }
+
+    private String mGetDay(int day) {
+        String mNewDay = "";
+        switch (day) {
+            case 1:
+                mNewDay = "Sun";
+                break;
+            case 2:
+                mNewDay = "Mon";
+                break;
+            case 3:
+                mNewDay = "Tue";
+                break;
+            case 4:
+                mNewDay = "Wed";
+                break;
+            case 5:
+                mNewDay = "Thu";
+                break;
+            case 6:
+                mNewDay = "Fri";
+                break;
+            case 7:
+                mNewDay = "Sat";
+                break;
+            default:
+                mNewDay = "error";
+        }
+        return mNewDay;
     }
 
     private String mGetMonth(int month) {
         String mNewMonth = "";
         switch (month) {
             case 1:
-                mNewMonth = "Enero";
+                mNewMonth = "January";
                 break;
             case 2:
-                mNewMonth = "Febrero";
+                mNewMonth = "February";
                 break;
             case 3:
-                mNewMonth = "Marzo";
+                mNewMonth = "March";
                 break;
             case 4:
-                mNewMonth = "Abril";
+                mNewMonth = "April";
                 break;
             case 5:
-                mNewMonth = "Mayo";
+                mNewMonth = "May";
                 break;
             case 6:
-                mNewMonth = "Junio";
+                mNewMonth = "June";
                 break;
             case 7:
-                mNewMonth = "Julio";
+                mNewMonth = "July";
                 break;
             case 8:
-                mNewMonth = "Agosto";
+                mNewMonth = "August";
                 break;
             case 9:
-                mNewMonth = "Septiembre";
+                mNewMonth = "September";
                 break;
             case 10:
-                mNewMonth = "Octubre";
+                mNewMonth = "October";
                 break;
             case 11:
-                mNewMonth = "Noviembre";
+                mNewMonth = "November";
                 break;
             case 12:
-                mNewMonth = "Diciembre";
+                mNewMonth = "December";
                 break;
             default:
                 mNewMonth = "error";

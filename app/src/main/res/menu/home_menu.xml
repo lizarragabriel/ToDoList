@@ -9,6 +9,6 @@
 
     <item
         android:id="@+id/mSignOut"
-        android:title="Cerrar seión"
+        android:title="Sign Out"
         app:showAsAction="never" />
 </menu>

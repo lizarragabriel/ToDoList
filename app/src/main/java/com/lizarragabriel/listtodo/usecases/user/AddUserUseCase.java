@@ -13,13 +13,16 @@ public class AddUserUseCase {
         this.mUserRepository = mUserRepository;
     }
 
-    public boolean mAddUser(String mUsername, String mPassword) {
+    public boolean mAddUser(String mUsername, String mPassword, String mConfirm) {
         try {
-            if(mUsername.isEmpty() || mPassword.isEmpty()) {
+            if(mUsername.isEmpty() || mPassword.isEmpty() || mConfirm.isEmpty()) {
                 return false;
             }
             UserEntity mFindUser = mUserRepository.mFindUser(mUsername);
             if(mFindUser != null) {
+                return false;
+            }
+            if(!mPassword.equals(mConfirm)) {
                 return false;
             }
             UserEntity mNewUser = new UserEntity(mUsername, mPassword);

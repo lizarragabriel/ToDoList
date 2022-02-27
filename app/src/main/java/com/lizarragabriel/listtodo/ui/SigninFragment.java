@@ -41,7 +41,7 @@ public class SigninFragment extends Fragment {
         });
 
         binding.mAdd.setOnClickListener(mSign -> {
-            if(mMainViewModel.mSignIn(binding.mUserName.getText().toString(), binding.mPasword.getText().toString())) {
+            if(mMainViewModel.mSignIn(binding.mUserName.getText().toString(), binding.mPasword.getText().toString(), binding.mConfirmPasword.getText().toString())) {
                 System.out.println("si lo pude agregar");
                 requireActivity().onBackPressed();
             } else {

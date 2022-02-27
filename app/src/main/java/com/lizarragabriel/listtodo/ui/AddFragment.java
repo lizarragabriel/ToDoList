@@ -4,11 +4,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -26,7 +30,7 @@ public class AddFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add, container, false);
         return binding.getRoot();
     }
@@ -34,22 +38,35 @@ public class AddFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setHasOptionsMenu(true);
         mToolbar();
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-
-        binding.mAdd.setOnClickListener(mAdd -> {
-            if(mMainViewModel.mAddTask(binding.mTitle.getText().toString())) {
-                System.out.println("lo agregaré");
-                getActivity().onBackPressed();
-            } else {
-                System.out.println("noes correcto");
-            }
-        });
     }
 
     private void mToolbar() {
+        ((AppCompatActivity)getActivity()).setSupportActionBar(binding.mToolbar);
         binding.mToolbar.setNavigationOnClickListener(mNav -> {
-            getActivity().onBackPressed();
+            requireActivity().onBackPressed();
         });
+    }
+
+    private void mAddTask() {
+        if(mMainViewModel.mAddTask(binding.mTitle.getText().toString())) {
+            getActivity().onBackPressed();
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.add_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.mAddSave){
+            mAddTask();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

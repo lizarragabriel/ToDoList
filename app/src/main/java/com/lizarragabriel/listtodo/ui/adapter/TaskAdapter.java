@@ -1,24 +1,19 @@
 package com.lizarragabriel.listtodo.ui.adapter;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.lizarragabriel.listtodo.databinding.TaskItemBinding;
 import com.lizarragabriel.listtodo.room.entity.TaskEntity;
 import com.lizarragabriel.listtodo.ui.HomeFragmentDirections;
-
 import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> {
     private List<TaskEntity> mList;
-
 
     @NonNull
     @Override

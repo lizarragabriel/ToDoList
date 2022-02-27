@@ -36,7 +36,7 @@ public class DetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detail, container, false);
         return binding.getRoot();
     }
@@ -47,13 +47,12 @@ public class DetailFragment extends Fragment {
         mTask = DetailFragmentArgs.fromBundle(getArguments()).getTask();
         binding.setTask(mTask);
         mToolbar();
-        setHasOptionsMenu(true);
         dialog = new AlertDialog.Builder(getContext());
-
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
     }
 
     private void mToolbar() {
+        setHasOptionsMenu(true);
         ((AppCompatActivity)getActivity()).setSupportActionBar(binding.mToolbar);
         binding.mToolbar.setNavigationOnClickListener(mNav -> {
             requireActivity().onBackPressed();
@@ -81,14 +80,14 @@ public class DetailFragment extends Fragment {
 
     private void mShowDialog() {
         dialog
-                .setTitle("Eliminar")
-                .setMessage("¿Desea eliminar esta nota?")
-                .setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                .setTitle(getString(R.string.delete_text))
+                .setMessage(getString(R.string.delete_question))
+                .setNegativeButton(getString(R.string.cancel_button), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                     }
                 })
-                .setPositiveButton("ELIMINAR", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.delete_button), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         mMainViewModel.mDeleteNote(mTask);
                         getActivity().onBackPressed();

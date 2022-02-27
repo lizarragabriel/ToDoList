@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:id="@+id/mToolbar"
-            app:title="Sign"
+            app:title="@string/signin_fragment_toolbar"
             app:navigationIcon="@drawable/ic_back" />
 
         <LinearLayout
@@ -23,19 +23,22 @@
             android:gravity="center"
             android:orientation="vertical" >
 
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign In"
+                android:text="@string/signin_fragment_signin"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:layout_marginBottom="20dp"
                 android:textSize="60sp" />
 
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username"
+                android:hint="@string/signin_fragment_username"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" >
@@ -51,9 +54,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/signin_fragment_password"
                 android:layout_marginTop="5dp"
-                app:endIconMode="password_toggle"
                 android:layout_marginHorizontal="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" >
 
@@ -65,14 +67,28 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/signin_fragment_comfirm"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:id="@+id/mConfirmPasword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:text="add"
+                android:text="@string/signin_fragment_signin_button"
                 android:id="@+id/mAdd" />
-
-
 
         </LinearLayout>
 

@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
-            app:title="Detail" />
+            app:title="@string/detail_fragment_toolbar" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

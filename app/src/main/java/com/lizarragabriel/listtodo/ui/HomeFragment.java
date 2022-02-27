@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,11 +43,10 @@ public class HomeFragment extends Fragment {
     private MainViewModel mMainViewModel;
     private SharedPref mShared;
     AlertDialog.Builder dialog;
-    private List<TaskEntity> lista;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         return binding.getRoot();
     }
@@ -60,38 +60,19 @@ public class HomeFragment extends Fragment {
             NavController mNavController = Navigation.findNavController(view);
             mNavController.navigate(R.id.action_homeFragment_to_loginFragment);
         }
-        System.out.println("SOY EL " + session);
         mNavController = Navigation.findNavController(view);
         dialog = new AlertDialog.Builder(getContext());
-
-
-        setHasOptionsMenu(true);
         mToolbar();
-
-
         binding.mAddTask.setOnClickListener(mAdd -> {
             NavController mNavController = Navigation.findNavController(mAdd);
             mNavController.navigate(R.id.action_homeFragment_to_addFragment);
         });
-
-
-
         TaskAdapter adapter = new TaskAdapter();
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-        //mMainViewModel.init(getContext());
         mMainViewModel.mRecyclerView(session);
         mMainViewModel.mGetTasks().observe(getViewLifecycleOwner(), mList -> {
             binding.mRecyclerView.setAdapter(adapter);
             adapter.setmList(mList);
-
-            lista = mList;
-            if(mList.size() > 0) {
-                for(TaskEntity task : mList) {
-                    System.out.println(task.toString());
-                }
-            } else {
-                System.out.println("es 0");
-            }
         });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
@@ -104,12 +85,12 @@ public class HomeFragment extends Fragment {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 mMainViewModel.mDeleteNote(adapter.mGetTask(viewHolder.getAdapterPosition()));
-                Toast.makeText(getContext(), "Task deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(binding.mRecyclerView);
     }
 
     private void mToolbar() {
+        setHasOptionsMenu(true);
         ((AppCompatActivity)getActivity()).setSupportActionBar(binding.mToolbar);
         binding.mToolbar.setNavigationOnClickListener(mNav -> {
             requireActivity().onBackPressed();
@@ -136,20 +117,19 @@ public class HomeFragment extends Fragment {
 
     private void mShowDialog() {
         dialog
-                .setTitle("Eliminar")
-                .setMessage("¿Eliminara todas las notas?")
-                .setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                .setTitle("Delete")
+                .setMessage("¿Delete all tasks?")
+                .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.dismiss();
                     }
                 })
-                .setPositiveButton("ELIMINAR", new DialogInterface.OnClickListener() {
+                .setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
                         mMainViewModel.mDeleteAllNotes();
                     }
                 });
-
         dialog.show();
     }
 }
