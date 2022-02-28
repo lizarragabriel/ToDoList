@@ -5,13 +5,13 @@
       <map>
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/drawable/ic_add.xml" value="0.2203125" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/drawable/ic_check.xml" value="0.2203125" />
-        <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout-land/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout-land/fragment_login.xml" value="0.18" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/fragment_add.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/fragment_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/fragment_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/fragment_signin.xml" value="0.33109919571045576" />
+        <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/fragment_signin.xml" value="0.22" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout/task_item.xml" value="0.5" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/menu/add_menu.xml" value="0.25" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/menu/detail_menu.xml" value="0.20416666666666666" />

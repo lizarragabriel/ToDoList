@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.LoginFragment">
+        tools:context=".ui.fragments.LoginFragment">
 
         <TextView
             android:layout_width="wrap_content"
@@ -15,9 +15,10 @@
             android:text="@string/login_fragment_login"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="start"
             android:layout_marginBottom="5dp"
-            android:textSize="60sp" />
+            android:textSize="50sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

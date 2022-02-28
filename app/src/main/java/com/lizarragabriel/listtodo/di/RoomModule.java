@@ -22,7 +22,6 @@ public class RoomModule {
     AppDatabase mProvidesRoom(@ApplicationContext Context context) {
         return Room.databaseBuilder(context, AppDatabase.class, BD_NAME)
                 .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
                 .build();
     }
 

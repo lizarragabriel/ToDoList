@@ -1,4 +1,4 @@
-package com.lizarragabriel.listtodo.ui;
+package com.lizarragabriel.listtodo.ui.fragments;
 
 import android.os.Bundle;
 
@@ -37,21 +37,10 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-        //mMainViewModel.init(getContext());
         binding.mLogIn.setOnClickListener(mLogin -> {
-            /*if(mMainViewModel.mLogin(binding.mUserName.getText().toString(), binding.mPasword.getText().toString())) {
-                NavController mNavController = Navigation.findNavController(mLogin);
-                mNavController.navigate(R.id.action_loginFragment_to_homeFragment);
-            } else {
-                System.out.println("error");
-            }*/
             if(mMainViewModel.mLogin(binding.mUserName.getText().toString(), binding.mPasword.getText().toString())) {
-                System.out.println("si");
                 NavController mNavController = Navigation.findNavController(mLogin);
                 mNavController.navigate(R.id.action_loginFragment_to_homeFragment);
-
-            } else {
-                System.out.println("no");
             }
         });
 
@@ -59,17 +48,5 @@ public class LoginFragment extends Fragment {
             NavController mNavController = Navigation.findNavController(mSignin);
             mNavController.navigate(R.id.action_loginFragment_to_signinFragment);
         });
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        System.out.println("onDestroy");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        System.out.println("onDestroyView");
     }
 }

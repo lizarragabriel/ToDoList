@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.lizarragabriel.listtodo.ui.HomeFragment"
+        android:name="com.lizarragabriel.listtodo.ui.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.lizarragabriel.listtodo.ui.LoginFragment"
+        android:name="com.lizarragabriel.listtodo.ui.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -37,17 +37,17 @@
     </fragment>
     <fragment
         android:id="@+id/signinFragment"
-        android:name="com.lizarragabriel.listtodo.ui.SigninFragment"
+        android:name="com.lizarragabriel.listtodo.ui.fragments.SigninFragment"
         android:label="fragment_signin"
         tools:layout="@layout/fragment_signin" />
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.lizarragabriel.listtodo.ui.AddFragment"
+        android:name="com.lizarragabriel.listtodo.ui.fragments.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.lizarragabriel.listtodo.ui.DetailFragment"
+        android:name="com.lizarragabriel.listtodo.ui.fragments.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument

@@ -9,11 +9,14 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.lizarragabriel.listtodo.databinding.TaskItemBinding;
 import com.lizarragabriel.listtodo.room.entity.TaskEntity;
-import com.lizarragabriel.listtodo.ui.HomeFragmentDirections;
+import com.lizarragabriel.listtodo.ui.fragments.HomeFragmentDirections;
+
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> {
-    private List<TaskEntity> mList;
+    private List<TaskEntity> mList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -37,6 +40,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
 
     public void setmList(List<TaskEntity> tasks) {
         this.mList = tasks;
+        notifyDataSetChanged();
     }
 
     @Override

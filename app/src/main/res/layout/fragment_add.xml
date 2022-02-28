@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.AddFragment">
+        tools:context=".ui.fragments.AddFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/mToolbar"
@@ -35,7 +35,7 @@
                 android:id="@+id/mTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:inputType="textCapSentences" />
 
 
         </com.google.android.material.textfield.TextInputLayout>

@@ -1,4 +1,4 @@
-package com.lizarragabriel.listtodo.ui;
+package com.lizarragabriel.listtodo.ui.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
