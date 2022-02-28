@@ -68,10 +68,11 @@ public class HomeFragment extends Fragment {
             mNavController.navigate(R.id.action_homeFragment_to_addFragment);
         });
         TaskAdapter adapter = new TaskAdapter();
+        binding.mRecyclerView.setAdapter(adapter);
+
         mMainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         mMainViewModel.mRecyclerView(session);
         mMainViewModel.mGetTasks().observe(getViewLifecycleOwner(), mList -> {
-            binding.mRecyclerView.setAdapter(adapter);
             adapter.setmList(mList);
         });
 
