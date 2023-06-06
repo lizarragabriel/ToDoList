@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gabri/Desktop/ExamenPractico/app/src/main/res/layout/task_item.xml" value="0.16" />
+        <entry key="..\:/Users/Gabri/Desktop/Github Android/ExamenPractico/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
+        <entry key="..\:/Users/Gabri/Desktop/Github Android/ExamenPractico/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/drawable/ic_add.xml" value="0.2203125" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/drawable/ic_check.xml" value="0.2203125" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/layout-land/fragment_login.xml" value="0.18" />
@@ -16,6 +19,9 @@
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/menu/add_menu.xml" value="0.25" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/menu/detail_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Gabri/Desktop/ListTodo/app/src/main/res/menu/home_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Gabri/Desktop/MyProjects/ExamenPractico/app/src/main/res/layout/fragment_add.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Gabri/Desktop/MyProjects/ExamenPractico/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Gabri/Desktop/MyProjects/ExamenPractico/app/src/main/res/layout/task_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

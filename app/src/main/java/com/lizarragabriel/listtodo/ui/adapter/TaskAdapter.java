@@ -6,11 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 import com.lizarragabriel.listtodo.databinding.TaskItemBinding;
 import com.lizarragabriel.listtodo.room.entity.TaskEntity;
 import com.lizarragabriel.listtodo.ui.fragments.HomeFragmentDirections;
-
+import com.lizarragabriel.listtodo.utils.MyDiffUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,10 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.MyViewHolder> 
     }
 
     public void setmList(List<TaskEntity> tasks) {
+        MyDiffUtil myDiffUtil = new MyDiffUtil(mList, tasks);
+        DiffUtil.DiffResult myDiff = DiffUtil.calculateDiff(myDiffUtil);
         this.mList = tasks;
-        notifyDataSetChanged();
+        myDiff.dispatchUpdatesTo(this);
     }
 
     @Override

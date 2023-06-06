@@ -3,32 +3,32 @@
     <string name="app_name">ListTodo</string>
 
     <!-- AddFragment XML -->
-    <string name="add_fragment_toolbar">Add Task</string>
-    <string name="add_fragment_title">Title</string>
+    <string name="add_fragment_toolbar">Agregar tarea</string>
+    <string name="add_fragment_title">Titulo</string>
 
     <!-- DetailFragment XML -->
-    <string name="detail_fragment_toolbar">Detail Task</string>
+    <string name="detail_fragment_toolbar">Detalle tarea</string>
 
     <!-- HomeFragment XML -->
-    <string name="home_fragment_toolbar">Tasks</string>
+    <string name="home_fragment_toolbar">Tareas</string>
 
     <!-- LoginFragment XML -->
-    <string name="login_fragment_login">Log In</string>
-    <string name="login_fragment_username">Username</string>
-    <string name="login_fragment_password">Password</string>
-    <string name="login_fragment_login_button">Log In</string>
-    <string name="login_fragment_signin_button">Sign Up</string>
+    <string name="login_fragment_login">Iniciar sesión</string>
+    <string name="login_fragment_username">Usuario</string>
+    <string name="login_fragment_password">Contraseña</string>
+    <string name="login_fragment_login_button">Iniciar sesión</string>
+    <string name="login_fragment_signin_button">Registrarte</string>
 
     <!-- SigninFragment XML -->
-    <string name="signin_fragment_toolbar">Sign Up</string>
-    <string name="signin_fragment_signin">Sign Up</string>
-    <string name="signin_fragment_username">Username</string>
-    <string name="signin_fragment_password">Password</string>
-    <string name="signin_fragment_signin_button">Sign Up</string>
-    <string name="signin_fragment_comfirm">Confirm password</string>
+    <string name="signin_fragment_toolbar">Registrate</string>
+    <string name="signin_fragment_signin">Registrate</string>
+    <string name="signin_fragment_username">Usuario</string>
+    <string name="signin_fragment_password">Contraseña</string>
+    <string name="signin_fragment_signin_button">Registrar</string>
+    <string name="signin_fragment_comfirm">Confirmar contraseña</string>
 
-    <string name="delete_question">¿Delete this task?</string>
-    <string name="delete_text">Delete</string>
-    <string name="delete_button">Delete</string>
-    <string name="cancel_button">Cancel</string>
+    <string name="delete_question">¿Eliminar tarea?</string>
+    <string name="delete_text">Eliminar</string>
+    <string name="delete_button">Eliminar</string>
+    <string name="cancel_button">Cancelar</string>
 </resources>

@@ -14,24 +14,20 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.lizarragabriel.listtodo.R;
 import com.lizarragabriel.listtodo.databinding.FragmentHomeBinding;
-import com.lizarragabriel.listtodo.room.entity.TaskEntity;
 import com.lizarragabriel.listtodo.sharedpref.SharedPref;
 import com.lizarragabriel.listtodo.ui.adapter.TaskAdapter;
 import com.lizarragabriel.listtodo.viewmodel.MainViewModel;
 
-import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -42,11 +38,12 @@ public class HomeFragment extends Fragment {
     private NavController mNavController;
     private MainViewModel mMainViewModel;
     private SharedPref mShared;
-    AlertDialog.Builder dialog;
+    private MaterialAlertDialogBuilder dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false);
         return binding.getRoot();
     }
@@ -60,8 +57,9 @@ public class HomeFragment extends Fragment {
             NavController mNavController = Navigation.findNavController(view);
             mNavController.navigate(R.id.action_homeFragment_to_loginFragment);
         }
+        binding.setLifecycleOwner(getViewLifecycleOwner());
         mNavController = Navigation.findNavController(view);
-        dialog = new AlertDialog.Builder(getContext());
+        // dialog = new AlertDialog.Builder(getContext());
         mToolbar();
         binding.mAddTask.setOnClickListener(mAdd -> {
             NavController mNavController = Navigation.findNavController(mAdd);
@@ -91,7 +89,6 @@ public class HomeFragment extends Fragment {
     }
 
     private void mToolbar() {
-        setHasOptionsMenu(true);
         ((AppCompatActivity)getActivity()).setSupportActionBar(binding.mToolbar);
         binding.mToolbar.setNavigationOnClickListener(mNav -> {
             requireActivity().onBackPressed();
@@ -117,7 +114,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void mShowDialog() {
-        dialog
+        dialog = new MaterialAlertDialogBuilder(getContext(), R.style.AlertDialogTheme)
                 .setTitle("Delete")
                 .setMessage("¿Delete all tasks?")
                 .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {

@@ -25,7 +25,7 @@
             <!-- Title, secondary and supporting text -->
             <TextView
                 tools:text="Body"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{task.title}"
@@ -34,7 +34,7 @@
 
             <TextView
                 tools:text="Body"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"

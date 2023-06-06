@@ -12,7 +12,7 @@ import java.util.List;
 @Dao
 public interface TaskDao {
 
-    @Query("SELECT * FROM tasks WHERE userId = :mUserId")
+    @Query("SELECT * FROM tasks WHERE userId = :mUserId ORDER BY date DESC")
     LiveData<List<TaskEntity>> mGetTasks(int mUserId);
 
     @Query("DELETE FROM tasks WHERE userId = :mUserId")

@@ -64,7 +64,7 @@ public class MainViewModel extends ViewModel {
 
     public boolean mSignIn(String mUserName, String mPassword, String mConfirm) {
         if(mAddUserUseCase.mAddUser(mUserName, mPassword, mConfirm)) {
-            mToastMessage("Add user");
+            mToastMessage("Added successfully");
             return true;
         } else {
             mToastMessage("Invalid username");
