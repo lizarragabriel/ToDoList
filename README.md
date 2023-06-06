@@ -39,7 +39,6 @@ Android application programmed in Java language with MVVM architecture that allo
         <td><img src="images/addtask.jpg"></td>
         <td><img src="images/update.jpg"></td>    
         <td><img src="images/swipe.jpg"></td>   
-        <td><img src="images/swipe.jpg"></td>
         <td><img src="images/delete.jpg"></td>
     </tr>
 </table>
