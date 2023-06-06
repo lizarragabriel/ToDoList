@@ -79,7 +79,7 @@ public class MainViewModel extends ViewModel {
 
     public boolean mAddTask(String title) {
         if(mAddTaskUseCase.mAddTask(title, userid)) {
-            mToastMessage("Task Added");
+            mToastMessage("Task added successfully");
             return true;
         }
         return false;
